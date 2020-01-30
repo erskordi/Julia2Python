@@ -36,6 +36,14 @@ Finally, for the TSP, the input is the table of distances between the cities, an
 
 Basically, we can extract any value from the Julia script.
 
+Before running TSP, make sure to install package *Distance* in Julia
+
+```julia
+using Pkg
+
+Pkg.add("Distance")
+```
+
 ```python
 from julia.api import Julia
 
