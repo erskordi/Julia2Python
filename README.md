@@ -26,7 +26,7 @@ The first example is a very small and simple linear program where some of the co
 from julia.api import Julia
 
 jl = Julia(compiled_modules=False) # this is necessary due to some incompatibilities that have to do with the current version of these packages.
-from julia import Main # make sure to import Main **AFTER** *Julia(compiled_modules=False)* due to the aforementioned incompatibilities
+from julia import Main # make sure to import Main AFTER command jl=Julia(compiled_modules=False) due to the aforementioned incompatibilities
 fn = Main.include('./script.jl')
 
 fn(1,5,5,3) # these values are from the original version of the LP
