@@ -7,7 +7,7 @@ function TSP(file_name::String, return_values::String)
 	f = open(file_name);
 	lines = readlines(f)
 	N = length(lines)
-	println("N: ", N)
+	#println("N: ", N)
 
 	c_pos = [Vector{Float64}(undef, 2) for _ in 1:N]
 
@@ -41,12 +41,12 @@ function TSP(file_name::String, return_values::String)
 	end
 	
 
- 	print(m)
+ 	#print(m)
 	
 	optimize!(m)
 
 	println("Objective value: ", JuMP.objective_value(m))
-	println("x = ", JuMP.value.(x))
+	#println("x = ", JuMP.value.(x))
 	#return JuMP.value(x), JuMP.objective_value(m)
 
 	f = open(return_values * "results.txt", "w")
