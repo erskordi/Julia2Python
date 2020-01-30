@@ -14,7 +14,11 @@ Pkg.add("Cbc")
 Pkg.add("PyCall")
 ```
 
-After that, follow the instructions presented in the answer section [here](https://stackoverflow.com/questions/49750067/running-julia-jl-file-in-python)
+Next you need to install julia for Python:
+
+```
+$ pip install julia
+```
 
 ## Run Julia from Python
 
