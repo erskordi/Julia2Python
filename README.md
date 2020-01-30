@@ -18,9 +18,31 @@ After that, follow the instructions presented in the answer section [here](https
 
 ## Run Julia from Python
 
+I included all the Julia files here, along with the data files necessary for the TSP example.
 
+The first example is a very small and simple linear program where some of the constants are given as function arguments from Python. You can use it to verify that everything works fine. 
 
-Finally, run the code below. I included two examples: 
+```python
+from julia.api import Julia
 
-a) The first example is a very small and simple linear program where some of the constants are given as function arguments from Python
+jl = Julia(compiled_modules=False) # this is necessary due to some incompatibilities that have to do with the current version of these packages.
+from julia import Main
+fn = Main.include('./script.jl')
+
+fn(1,5,5,3) # these values are from the original version of the LP
+```
+
+Finally, for the TSP, the input is the table of distances between the cities, and a path to save the txt of the outputs (This code extacts the objective function value). We can have any kind of inputs, scalars, vectors, tables. 
+
+Basically, we can extract any value from the Julia script.
+
+```python
+from julia.api import Julia
+
+jl = Julia(compiled_modules=False) # this is necessary due to some incompatibilities that have to do with the current version of these packages.
+from julia import Main
+
+fn = Main.include('./tsp.jl')
+fn("./tsp_25_1.txt","./")
+```
 
